@@ -11,7 +11,7 @@ from gixia.states.base_state import BaseState
 
 logger = logging.getLogger(__name__)
 
-class State(BaseState):
+class LoginState(BaseState):
 
     def on_success(self, id_token: dict):
         google_info = verify_oauth2_token(
@@ -23,8 +23,10 @@ class State(BaseState):
             email = google_info.get('email')
             name = google_info.get('name')
             service.login_with_google(email, name, google_info)
-            BaseState.user = service.login_with_google(email, name, google_info)
-            if BaseState.user:
+            user = service.login_with_google(email, name, google_info)
+            if user:
+                self.user_email = user.email
+                self.user_name = user.name
                 logger.info(f"User ({email}, {name}) logged in successfully.")
                 print(f"User ({email}, {name}) logged in successfully.")
 
@@ -62,7 +64,7 @@ def login_button() -> rx.Component:
             rx.vstack(
                 GoogleOAuthProvider.create(
                     GoogleLogin.create(
-                        on_success=State.on_success,
+                        on_success=LoginState.on_success,
                     ),
                     client_id=get_client_id(),
                 ),

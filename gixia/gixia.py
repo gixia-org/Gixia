@@ -4,7 +4,7 @@ from gixia.components.header import header
 from gixia.states.base_state import BaseState
 
 
-class State(BaseState):
+class IndexState(BaseState):
     input: str = ""
 
 @rx.page(route="/")
@@ -26,14 +26,14 @@ def index() -> rx.Component:
             rx.input(
                 placeholder="Input a paper title, arxiv link or arxiv id to get started",
                 type="text",
-                on_change=State.set_input,
+                on_change=IndexState.set_input,
                 width="60%",
                 height="40px",
                 margin_top="10px",
             ),
             rx.link(
                 rx.button("Go to", width="100px"),
-                href=f"/paper/{State.input}",
+                href=f"/paper/{IndexState.input}",
                 is_external=False,
             ),
             spacing="5",

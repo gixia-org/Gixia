@@ -85,7 +85,7 @@ class Database:
             User: The user object specified by email.
         """
         user_document = self.users_collection.find_one({'email': email})
-        return User(**user_document) if user_document else None
+        return User.from_document(user_document) if user_document else None
 
     def create_user(self, email, name, google_info) -> User:
         """

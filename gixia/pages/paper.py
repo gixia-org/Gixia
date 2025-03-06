@@ -5,7 +5,7 @@ from gixia.core.service import service
 from gixia.states.base_state import BaseState
 
 
-class State(BaseState):
+class PaperState(BaseState):
 
     arxiv_id: str = ""
     title: str = ""
@@ -20,23 +20,23 @@ class State(BaseState):
             self.authors = ', '.join(paper.authors)
             self.abstract = paper.abstract
 
-@rx.page(route="/paper/[_arxiv_id]", on_load=State.on_load)
+@rx.page(route="/paper/[_arxiv_id]", on_load=PaperState.on_load)
 def paper() -> rx.Component:
     return rx.container(
         header(),
         rx.hstack(
             rx.vstack(
                 rx.heading(
-                    State.title,
+                    PaperState.title,
                     size="7",
                 ),
                 rx.text(
-                    State.authors,
+                    PaperState.authors,
                     size="2",
                     color="gray",
                 ),
                 rx.text(
-                    State.abstract,
+                    PaperState.abstract,
                     size="3",
                     color=rx.color("black", 8),
                 ),

@@ -5,4 +5,5 @@ from gixia.core.user import User
 
 class BaseState(rx.State):
     """Base state for sharing common state across pages."""
-    user: User = None
+    user_email: str = ""
+    user_name: str = ""

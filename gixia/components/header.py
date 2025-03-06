@@ -7,10 +7,10 @@ def header() -> rx.Component:
     return rx.hstack(
         rx.spacer(),
         rx.cond(
-            BaseState.user,
+            BaseState.user_name,
             rx.link(
                 rx.button(
-                    BaseState.user.name,
+                    BaseState.user_name,
                     background_color="transparent",
                     border="none",
                     color=rx.color_mode_cond(
@@ -22,17 +22,6 @@ def header() -> rx.Component:
                 href="/profile",
                 is_external=False,
             ),
-            # rx.button(
-            #     "Login",
-            #     background_color="transparent",
-            #     border="none",
-            #     color=rx.color_mode_cond(
-            #         light="black",
-            #         dark="white",
-            #     ),
-            #     cursor="pointer",
-            #     on_click=LoginModalState.toggle_modal,
-            # ),
             login_button(),
         ),
         rx.color_mode.button(),
