@@ -46,7 +46,7 @@ def paper() -> rx.Component:
             ),
             rx.vstack(
                 rx.heading(
-                    "9.1",
+                    "8.2",
                     font_family="Hanken Grotesk",
                     font_size="100px",
                     align="center",
@@ -68,9 +68,33 @@ def paper() -> rx.Component:
                 rx.hstack(
                     rx.text("9", width="10%", align="center", size="1"),
                     rx.vstack(
-                        rx.heading("Jinge Wang", size="1"),
+                        rx.heading("Brandon Wu", size="1"),
                         rx.text(
-                            "Good work!",
+                            "The paper is still LLMs all the way down. The evaluation is suitable to compare different systems for idea generation, but still contains no evaluation of the produced ideas themselves. The text is still written in a very selling manner, overestimating the capabilities of LLMs by assuming that hey would be able to reason over scientific research methods.",
+                            size="1",
+                        ),
+                        width="90%",
+                    ),
+                    width="100%",
+                ),
+                rx.hstack(
+                    rx.text("4", width="10%", align="center", size="1"),
+                    rx.vstack(
+                        rx.heading("Alex", size="1"),
+                        rx.text(
+                            "It would be great to see more concrete analyses on the relationship between automatic and human evaluations (e.g. rank correlations). From Figure 4 and 6 they seem to be in agreement, but this point would be much stronger if there was an explicit comparison.",
+                            size="1",
+                        ),
+                        width="90%",
+                    ),
+                    width="100%",
+                ),
+                rx.hstack(
+                    rx.text("1", width="10%", align="center", size="1"),
+                    rx.vstack(
+                        rx.heading("Feifei Liu", size="1"),
+                        rx.text(
+                            "The paper is clearly written and well-structured, making it easy to follow.",
                             size="1",
                         ),
                         width="90%",
